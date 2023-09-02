@@ -37,9 +37,10 @@ const page: FunctionComponent<pageProps> = ({}) => {
 	}
 
 	return (
-		<div className='w-screen h-screen bg-white flex justify-center items-center'>
+		<div className='w-screen h-screen bg-white flex'>
 			<div className='flex flex-col gap-10 pr-10'>
 				<SketchPicker
+					presetColors={[]}
 					color={color}
 					onChange={(e) => setColor(e.hex)}
 				/>
@@ -51,13 +52,16 @@ const page: FunctionComponent<pageProps> = ({}) => {
 					Clear
 				</button>
 			</div>
-			<canvas
-				onMouseDown={onMouseDown}
-				ref={canvasRef}
-				width={750}
-				height={750}
-				className='border border-black rounded-md'
-			/>
+
+			<div>
+				<canvas
+					onMouseDown={onMouseDown}
+					ref={canvasRef}
+					width={750}
+					height={750}
+					className='border border-black rounded-md'
+				/>
+			</div>
 		</div>
 	);
 };
